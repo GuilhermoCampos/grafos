@@ -5,7 +5,10 @@ from src.utils.graph import (
 )
 
 from src.utils.vertices import (
-  weighting_vertice,
+  name_vertices,
+  get_vertice_edges,
+  get_vertice_attributes,
+  get_vertice_degree,
   check_vertice_adjacency,
   check_vertice_existence,
   get_total_vertices

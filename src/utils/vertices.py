@@ -1,14 +1,29 @@
-import igraph as ig
+def name_vertices(names, graph):
+  graph.vs["name"] = names
 
-def weighting_vertice(vertice):
-  return
+  return graph
 
-def check_vertice_adjacency(vertice):
-  return
+def get_vertice_edges(vertice):
+  return vertice.all_edges()
 
-def check_vertice_existence(vertice):
-  return
+def get_vertice_attributes(vertice):
+  return vertice.attribute_names()
 
-def get_total_vertices():
-  return
+def get_vertice_degree(vertice):
+  return vertice.degree()
+
+def check_vertice_adjacency(vertice, searchVertice, graph):
+  neighbors = graph.neighbors(vertice)
+
+  for neighbor in neighbors:
+    if neighbor == searchVertice:
+      return True
+    else :
+      return False
+
+def check_vertice_existence(vertice, graph):
+  return vertice in graph.vs
+
+def get_total_vertices(graph):
+  return graph.vcount()
 
