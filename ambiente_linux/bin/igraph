@@ -1,0 +1,4 @@
+#!/home/guilhermo/Documentos/projetos/grafos/ambiente_linux/bin/python3.10
+"""Small script to execute the igraph command line interface"""
+from igraph.app.shell import main
+main()
