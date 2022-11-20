@@ -1,3 +1,5 @@
+import igraph as ig
+
 from src.utils.graph import (
   create_graph,
   check_is_graph_full,
