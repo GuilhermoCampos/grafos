@@ -18,7 +18,7 @@ def check_vertice_adjacency(vertice, searchVertice, graph):
   for neighbor in neighbors:
     if neighbor == searchVertice:
       return True
-    else :
+    else:
       return False
 
 def check_vertice_existence(vertice, graph):

@@ -11,7 +11,10 @@ def weighting_edge(weights, graph):
   graph.es['weight'] = weights
 
 def check_edge_adjacency(edge, graph):
-  return
+  has_adjacency = False
+
+  
+  return has_adjacency
 
 def check_edge_existence(edge, graph):
   for e in graph.get_edgelist():
