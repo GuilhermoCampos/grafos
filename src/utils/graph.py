@@ -1,17 +1,31 @@
 import igraph as ig
-import app
+from src.utils.edges import (
+  check_edge_adjacency,
+)
 
-def create_graph(vertices):
-  return ig.Graph(n=vertices)
+def create_graph(tamanho, edges):
+  return ig.Graph(n=tamanho, edges=edges)
 
 def check_is_graph_full(graph):
-  isFull = False
+  vertices = graph.vs
 
-  for vertice in graph:
-    for other_vertice in graph:
-      isFull = app.check_edge_adjacency(vertice, other_vertice, graph)
+  for vertex in vertices:
+    if vertex.degree() != graph.vcount() - 1:
+      return False
+    else: return True
 
-  return isFull
-
-def check_is_graph_empty():
   return
+
+def check_is_graph_empty(graph):
+  if(graph.es == 0): return True
+  else: return False
+
+def get_graph_edges(graph):
+  edges = graph.es()
+
+  names = []
+
+  for edge in edges:
+    names.append(edge["name"])
+
+  return names

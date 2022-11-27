@@ -10,18 +10,24 @@ def remove_edge(edge, graph):
 def weighting_edge(weights, graph):
   graph.es['weight'] = weights
 
-def check_edge_adjacency(edge, graph):
-  has_adjacency = False
+def name_edges(edges, graph):
+  graph.es['name'] = edges
 
-  
-  return has_adjacency
+def check_edge_adjacency(graph):
+  return graph.get_adjacency()
 
 def check_edge_existence(edge, graph):
-  for e in graph.get_edgelist():
-    if e[0] == edge[0] and e[1] == edge[1]:
+  for e in graph.es:
+    if e["name"] == edge:
       return True
-  
+
   return False
+
+  #for e in graph.get_edgelist():
+  # if e[0] == edge[0] and e[1] == edge[1]:
+    #  return True
+
+  #return False
 
 def get_total_edges(graph):
   return graph.ecount()
