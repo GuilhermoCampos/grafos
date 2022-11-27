@@ -29,3 +29,9 @@ def get_graph_edges(graph):
     names.append(edge["name"])
 
   return names
+
+def get_graph_adjacency_matrix(graph):
+  return graph.get_adjacency()
+
+def get_graph_adjacency_list(graph):
+  return graph.get_adjlist()

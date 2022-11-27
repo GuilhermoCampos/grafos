@@ -2,7 +2,9 @@ from src.utils.graph import (
   create_graph,
   check_is_graph_full,
   check_is_graph_empty,
-  get_graph_edges
+  get_graph_edges,
+  get_graph_adjacency_matrix,
+  get_graph_adjacency_list
 )
 
 from src.utils.vertices import (
@@ -44,11 +46,14 @@ print(check_vertice_existence("André", graph))
 print(get_vertice_edges(graph.vs.find(name="André")))
 print(get_total_vertices(graph))
 
-
 print('\n')
 print("GRAPH TEST")
 print(check_is_graph_empty(graph))
 print(check_is_graph_full(graph))
+print('Lista de Adjacencia')
+print(get_graph_adjacency_list(graph))
+print('Matriz de Adjacencia')
+print(get_graph_adjacency_matrix(graph))
 
 print('\n')
 print('EDGES TEST')
