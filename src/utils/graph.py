@@ -12,17 +12,15 @@ def check_is_graph_full(graph):
   for vertex in vertices:
     if vertex.degree() != graph.vcount() - 1:
       return False
-    else: return True
 
-  return
+  return True
 
 def check_is_graph_empty(graph):
   if(graph.es == 0): return True
-  else: return False
+  return False
 
 def get_graph_edges(graph):
   edges = graph.es()
-
   names = []
 
   for edge in edges:
