@@ -34,7 +34,7 @@ class Graph:
   def print_euler_util(self, v):
     for w in self.graph[v]:
       if self.is_valid_next_edge(v, w):
-        #print(f"{v}-{w}")
+        print(f"{v}-{w}")
         self.remove_edge(v, w)
         self.print_euler_util(w)
 
