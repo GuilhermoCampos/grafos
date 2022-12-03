@@ -21,15 +21,22 @@ class Graph:
         self.graph[w].pop(index)
 
 
-  def dfs_count(self, v, visited):
-    count = 1
-    visited[v] = True
-
-    for i in self.graph[v]:
-      if visited[i] == False:
-        count = count + self.dfs_count(i, visited)
+  def print_euler_tour(self):
+    v = 0
+    for i in range(self.v):
+      if len(self.graph[i]) % 2 != 0:
+        v = i
+        break
     
-    return count
+    self.print_euler_util(v)
+
+
+  def print_euler_util(self, v):
+    for w in self.graph[v]:
+      if self.is_valid_next_edge(v, w):
+        #print(f"{v}-{w}")
+        self.remove_edge(v, w)
+        self.print_euler_util(w)
 
 
   def is_valid_next_edge(self, v, w):
@@ -48,26 +55,21 @@ class Graph:
       return False if count1 > count2 else True
 
 
-  def print_euler_util(self, v):
+  def dfs_count(self, v, visited):
+    count = 1
+    visited[v] = True
+
     for w in self.graph[v]:
-      if self.is_valid_next_edge(v, w):
-        print(f"{v}-{w}")
-        self.remove_edge(v, w)
-        self.print_euler_util(w)
-
-
-  def print_euler_tour(self):
-    v = 0
-    for i in range(self.v):
-      if len(self.graph[i]) %2 != 0:
-        v = i
-        break
+      if visited[w] == False:
+        count = count + self.dfs_count(w, visited)
     
-    self.print_euler_util(v)
+    return count
+
 
 g = Graph(4)
 g.add_edge(0, 1)
 g.add_edge(0, 2)
+g.add_edge(0, 3)
 g.add_edge(1, 2)
 g.add_edge(2, 3)
 g.print_euler_tour()
